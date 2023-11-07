@@ -1,0 +1,29 @@
+.lightTheme{
+    --background:rgb(240,240,240);
+    --color:black;
+}
+.darkTheme{
+    --background:#0F0F0F;
+    --color:white;
+}
+*{
+    margin:0;
+    padding:0;
+}
+:root{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+}
+.navbar{
+    height:8rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0px 6rem;
+    background-color: var(--background);
+    color:var(--color)
+}
+
+

@@ -6,9 +6,6 @@ import Home from './Pages/Home';
 const App = () => {
   const dispatch=useDispatch();
   useEffect(()=>{
-    dispatch(fetchTrendingCoins());
-    dispatch(fetchCoins());
-
   },[]);
 
   return (
