@@ -6,3 +6,4 @@ const store = configureStore({
     slice1,
   },
 });
+export default store;
