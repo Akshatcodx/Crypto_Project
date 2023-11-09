@@ -1,12 +1,12 @@
 import React from 'react';
-import "./Styles.css"
+import "./Styles.css";
+import {Link} from "react-router-dom"
 
 const TrendingCard = ({id,name,price,image,symbol}) => {
-    console.log(price,name,symbol,id)
   return (
     <div className='card'>
        <div className="image">
-        <img src={image}></img>
+       <Link to={`singlecoin/${id}`}> <img src={image}></img></Link>
        </div>
        <div className="info">
         <p>{symbol}</p>

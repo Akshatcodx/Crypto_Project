@@ -21,7 +21,7 @@ const Navbar = () => {
               <h1>CryptoVerse</h1>
             </div>
             <div className="toggle">        
-            <Toggle   defaultChecked={false} disabled={false} onClick={handleMode} />          
+            <Toggle  defaultChecked={false} disabled={false} onClick={handleMode} />          
             </div>
         </div>
     </div>

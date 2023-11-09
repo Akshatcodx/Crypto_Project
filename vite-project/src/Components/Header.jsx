@@ -22,7 +22,7 @@ const Header = () => {
         <Slider {...settings}>
      {
          trendingCoins.map((elem)=>{
-             console.log(elem)
+
              const num=1e4;
              return(                                                         
                     <TrendingCard autoplay={true} fade={true} id={elem.item.coin_id} 
