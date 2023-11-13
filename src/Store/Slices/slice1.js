@@ -30,7 +30,11 @@ const initialState = {
 const Slice1 = createSlice({
   name: "Slice1",
   initialState,
-  reducers: {},
+  reducers: {
+    setCoin: (state, action) => {
+      state.coins = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCoins.pending, (state) => {
       state.status = STATUS.LOADING;
@@ -83,3 +87,4 @@ export const fetchTrendingCoins = createAsyncThunk(
 );
 // fetching trending coins
 export default Slice1.reducer;
+export const { setCoin } = Slice1.actions;
