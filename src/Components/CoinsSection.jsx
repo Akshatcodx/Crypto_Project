@@ -8,8 +8,12 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Search from './Search';
 import { setCoin } from '../Store/Slices/slice1';
+import { FaStar } from 'react-icons/fa';
+import { BsStar } from 'react-icons/bs';
+
 const CoinsSection = () => {  
   let rows;
+  const [iconClicked,setIconClicked]=useState("")
   const dispatch=useDispatch();
   const [page,setPage]=useState(1);
   const [search,setSearch]=useState("");
@@ -46,6 +50,18 @@ const CoinsSection = () => {
   // }
 // rows=filteredCoins.slice(page*itemsPerPage-itemsPerPage,page*itemsPerPage);
 
+const handleIconClick=(id)=>{
+ if(iconClicked==="")
+ { 
+ setIconClicked(id);
+ }
+ else{
+  setIconClicked("");
+ }
+ 
+
+}
+
 const filteredCoins=coins.filter((elem)=>{
   return elem.name.toLowerCase().includes(search.toLowerCase());
 });
@@ -77,7 +93,10 @@ if(search=="")
         <div className="coinstable">
             <table border="2">
              <thead>
-              <th>Index</th>
+              <th>
+             
+                #
+                </th>
                 <th>Coin</th>
                 <th>Price</th>
                 <th>24 Change</th>
@@ -91,7 +110,17 @@ if(search=="")
                 )
                 return(
                   <tr>
-                     <td>{elem.market_cap_rank}</td>
+                     <td>
+                      <div style={{display:"flex",gap:"4px",alignItems:"center",justifyContent:"center"}}>
+                      <p className='wishlistIcon' onClick={()=>{handleIconClick(elem.id)}}>
+                       {
+                        // (iconClicked)?(<FaStar/> ):(<BsStar/>)
+                        <FaStar/>
+                       }
+                         </p>
+                     <p> {elem.market_cap_rank}</p>
+                      </div>
+                    </td>
                   <td>
                      <div className='coin'>
                       <div className="img"><Link to={`/singleCoin/${elem.id}`}>

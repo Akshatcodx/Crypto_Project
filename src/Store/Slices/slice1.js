@@ -17,7 +17,7 @@ const options = {
     "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
   },
 };
-const STATUS = Object.freeze({
+export const STATUS = Object.freeze({
   LOADING: "loading",
   ERROR: "error",
   IDLE: "idle",
@@ -33,6 +33,9 @@ const Slice1 = createSlice({
   reducers: {
     setCoin: (state, action) => {
       state.coins = action.payload;
+    },
+    setStatus: (state, action) => {
+      state.status = STATUS.IDLE;
     },
   },
   extraReducers: (builder) => {
@@ -87,4 +90,4 @@ export const fetchTrendingCoins = createAsyncThunk(
 );
 // fetching trending coins
 export default Slice1.reducer;
-export const { setCoin } = Slice1.actions;
+export const { setCoin, setStatus } = Slice1.actions;

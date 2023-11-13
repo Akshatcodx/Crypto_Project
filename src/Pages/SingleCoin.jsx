@@ -12,7 +12,7 @@ const SingleCoin = () => {
   const {coinId}=useParams();
   // getting single coin info
   return (
-    <div className="singleCoinPage" style={{display:"flex", alignItems:"center"}}>
+    <div className="singleCoinPage" style={{display:"flex", alignItems:"center",border:"2px solid blue"}}>
       {/* <Navbar/> */}
       <CoinInfo coinId={coinId}/>
       <div className="verticalLine"></div>

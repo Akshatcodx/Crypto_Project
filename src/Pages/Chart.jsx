@@ -2,11 +2,13 @@ import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend,CategoryScale,Filler, LinearScale, PointElement, LineElement, Title} from "chart.js";
 import { Line } from 'react-chartjs-2';
 import moment from 'moment/moment';
+import { setStatus } from '../Store/Slices/slice1';
+import { SpinnerCircular } from 'spinners-react';
 const Chart = ({coinId}) => {
     const [coinChart,setCoinChart]=useState([]);
     console.log(coinId);
@@ -20,6 +22,8 @@ const Chart = ({coinId}) => {
         console.log("try running")
         const response=await axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7&interval=daily&precision=1`);
         const temp=await response.data.prices; 
+        
+
         console.log(temp);
          setCoinChart(temp);
        }
@@ -78,7 +82,14 @@ const Chart = ({coinId}) => {
      }
   return (
     <div>
-      <Line options={options} data={data}></Line>
+      {
+        // (!coinChart)?(
+          // <div className='spinner'><SpinnerCircular size={300}/></div>
+        //  
+
+        // ):( <Line options={options} data={data}></Line>)
+      }
+      <div className='spinner'><SpinnerCircular size={300}/></div>
     </div>
   )
 }

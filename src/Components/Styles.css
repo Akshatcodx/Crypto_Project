@@ -130,7 +130,7 @@ body{
 .paginationCounterButton{
     cursor:pointer;
     border-radius: 50%;
-    /* background-color: blueviolet; */
+    background-color: var(--background);
     padding:2px 6px;
     margin:0px 5px;
 }
@@ -209,5 +209,20 @@ body{
     color:var(--color);
 
 }
+/* spinner */
+.spinner{
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* spinner */
+
+/* Wishlisht icon */
+.wishlistIcon{
+    /* margin-right:3px; */
+    cursor: pointer;
+}
+/* wishlisht icon */
 
 

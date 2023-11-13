@@ -7,8 +7,10 @@ import { useParams } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend,CategoryScale,Filler, LinearScale, PointElement, LineElement, Title} from "chart.js";
 import { Line } from 'react-chartjs-2';
 import moment from 'moment/moment';
+import { SpinnerCircular } from 'spinners-react';
 const Chart = ({coinId}) => {
     const [coinChart,setCoinChart]=useState([]);
+    const [loading,setLoading]=useState(false);
     console.log(coinId);
     useEffect(()=>{
         console.log("useeffect running")
@@ -21,6 +23,7 @@ const Chart = ({coinId}) => {
         const response=await axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7&interval=daily&precision=1`);
         const temp=await response.data.prices; 
         console.log(temp);
+        setLoading(true)
          setCoinChart(temp);
        }
       
@@ -78,7 +81,16 @@ const Chart = ({coinId}) => {
      }
   return (
     <div className ="chartSection"style={{width:"80vw"}}>
-      <Line style={{height:"620px"}} className='chart' options={options} data={data}></Line>
+      <div>
+   {
+     (!loading)?(
+       <div className='spinner'><SpinnerCircular size={300}/></div>
+      
+     ):( <Line options={options} data={data}></Line>)
+   }
+   {/* <div className='spinner'><SpinnerCircular size={300}/></div> */}
+ </div>
+  
     </div>
   )
 }
