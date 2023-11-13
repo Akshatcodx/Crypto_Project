@@ -3,11 +3,13 @@
     --color:black;
     background:url()"https://img.freepik.com/free-vector/realistic-galaxy-background_52683-12122.jpg?size=626&ext=jpg&ga=GA1.1.1739213578.1688215321&semt=ais";
     --tableBackground:rgb(240,240,240);
+    --verticalLine:rgb(0,0,0)
 }
 .darkTheme{
     --background:#0F0F0F;
     --color:white;
     --tableBackground:blueviolet;
+    --verticalLine:blueviolet
 }
 *{
     margin:0;
@@ -21,13 +23,16 @@ body{
 }
 /* Navbar */
 .navbar{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    margin-bottom: 2px;
     height:8rem;
     display:flex;
     align-items: center;
     justify-content: space-between;
     padding:0px 6rem;
     background-color: var(--background);
-    color:var(--color)
+    color:var(--color);
+    /* box-shadow: 20px 20px rgb(14, 203, 129) */
 }
 /* Navbar */
 
@@ -137,5 +142,47 @@ body{
 /* Pagination */
 
 /* coins section */
+
+/* single coin page */
+/* coin info section  */
+.coinInfo {
+    height:85vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    background-color: var(--background);
+    color: var(--color);
+}
+.coinInfo .logo img{
+    /* width:150px; */
+}
+.coinInfo .info{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.verticalLine{
+    background-color: var( --verticalLine);
+    height:85vh;
+    width:3px;
+}
+/* coin info section */
+/* chart section */
+.chartSection{
+    background-color: var(--background);
+    color:var(--color)
+
+}
+.chartSection .chart{
+
+    /* margin:0 auto; */
+    width:80vw;
+    /* height:300px; */
+    height:80vh;
+
+}
+/* chart section */
+/* single coin page */
 
 

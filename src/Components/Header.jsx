@@ -9,10 +9,11 @@ const Header = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 400,
         slidesToShow: 3,
         slidesToScroll: 3,
-        autoplay:true
+        autoplay:true,
+        arrows:false
       };
   return (
     <div className='header' >
@@ -25,7 +26,7 @@ const Header = () => {
 
              const num=1e4;
              return(                                                         
-                    <TrendingCard autoplay={true} fade={true} id={elem.item.coin_id} 
+                    <TrendingCard autoplay={true} fade={true} id={elem.item.id} 
                     name={elem.item.name} 
                     image={elem.item.small} 
                     symbol={elem.item.symbol} 
