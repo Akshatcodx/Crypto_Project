@@ -12,60 +12,6 @@ const CoinsSection = () => {
   const {coins}=useSelector((state)=>(state.slice1));
   console.log("these are coins",coins);
   let itemsperPage=(coins.length)/10;
-  useEffect(()=>{
-    fetchData();
-    
-  },[]);
-  const fetchData=async()=>{
-    // console.log("fetchdata running")
-    const response=await axios.get("https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=7&interval=daily&precision=1");
-    const data= await response.data;
-    setHistory(data)
-   
-
-  }
-  console.log("this is historicaldata",history);
-  // chartjs
-
-  ChartJS.register(ArcElement,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Tooltip,
-    Legend,
-    Filler,
-    Title);
-   const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top'
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Line Chart',
-      },
-    },
-  };
-//  const coinsChartData=history.prices.map((val)=>({x:val[0],y:val[1].toFixed(2)}));
-  //  const labels=["1","20","2"]
-  //  const data = {
-    // labels,
-    // datasets: [
-      // {
-        // label: 'Dataset 1',  
-        // data: coins.map((coin) =>coin.sparkline),
-        // borderColor: 'rgb(255, 99, 132)',
-        // backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        // fill:true,
-        // data:["35372.97567211047",'35385.55493287271',"35368.401088874634"],
-        // borderColor: 'rgb(255, 99, 132)',
-        // backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      // },
-    // ],
-  // };
-  // pagination counter click logic
 
 
   const handleClick=(pageClicked)=>{
@@ -73,6 +19,7 @@ const CoinsSection = () => {
     if(!(pageClicked<=0 || pageClicked>((coins.length)/itemsperPage) ))
     
     setPage(pageClicked)
+   window.scroll(0,450)
   }
    // pagination counter click logic
   return (
@@ -104,12 +51,8 @@ const CoinsSection = () => {
                      </div>
                     </td>
                      <td>{elem.current_price.toFixed(2)}  Rs</td>
-                     <td className={(num<0.0)?"red":"green"}>{elem.price_change_percentage_24h
-}</td>
-                     <td>{elem.market_cap.toString().slice(0,6)}  Rs</td>
-                     <td>
-                     {/* <Line options={options} data={data} /> */}
-                     </td>
+                     <td className={(num<0.0)?"red":"green"}>{elem.price_change_percentage_24h}</td>
+                     <td>{elem.market_cap.toString().slice(0,6)}  Rs</td>                 
                    </tr>
                 )
               }
@@ -119,17 +62,14 @@ const CoinsSection = () => {
               </tbody>
              </table>
              <div className="paginationCounter">
-              <span className='prev' onClick={()=>handleClick(page-1)}>⬅️</span>
-             
+              <span className='prev' onClick={()=>handleClick(page-1)}>⬅️</span>            
                 {
                   Array.from({length:((coins.length)/itemsperPage)},(_,idx)=>{
                     return(
-                      <span  className="paginationCounterButton" onClick={()=>{handleClick(idx+1)}}>{idx+1}</span>
+                      <span id={(page===idx+1)?"paginationClicked":""} className="paginationCounterButton" onClick={()=>{handleClick(idx+1)}}>{idx+1}</span>
                     )
                   })
-                }
-              
-             
+                }           
               <span className='next' onClick={()=>handleClick(page+1)}>➡️</span> 
             </div> 
         </div>

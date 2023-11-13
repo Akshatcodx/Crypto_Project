@@ -128,7 +128,7 @@ body{
 .paginationCounterButton{
     cursor:pointer;
     border-radius: 50%;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     padding:2px 6px;
     margin:0px 5px;
 }
@@ -138,6 +138,9 @@ body{
 .next,.prev{
     font-size: 20px;
     cursor:pointer;
+}
+#paginationClicked{
+    background-color: blueviolet;
 }
 /* Pagination */
 
