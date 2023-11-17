@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import SingleCoin from '../Pages/SingleCoin';
 const CoinInfo = ({coinId}) => {
     const [singleCoin,setSingleCoin]=useState();
-// getting single coin info
 useEffect(()=>{
    fetchSingleCoin();
 },[]);
@@ -13,17 +12,15 @@ const fetchSingleCoin=async()=>{
       const response= await
        axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}`);
       const data=await response.data;
-      // console.log(data)
       setSingleCoin(data)
     
    } catch (error) {
     console.log(error);
    }
 }
-console.log(singleCoin)
 
   return (
-    <div className='coinInfo' style={{width:"20vw"}}>
+    <div className='coinInfo'>
         <div className="logo">
             <img src={singleCoin?.image.large}></img>
 

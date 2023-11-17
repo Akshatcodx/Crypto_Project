@@ -80,8 +80,8 @@ const Chart = ({coinId}) => {
       ]
      }
   return (
-    <div className ="chartSection"style={{width:"80vw"}}>
-      <div>
+    <div className ="chartSection">
+
    {
      (!loading)?(
        <div className='spinner'><SpinnerCircular size={300}/></div>
@@ -89,7 +89,7 @@ const Chart = ({coinId}) => {
      ):( <Line options={options} data={data}></Line>)
    }
    {/* <div className='spinner'><SpinnerCircular size={300}/></div> */}
- </div>
+
   
     </div>
   )

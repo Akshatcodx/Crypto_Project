@@ -5,8 +5,9 @@ import Home from './Pages/Home';
 import { Routes,Route } from 'react-router';
 import SingleCoin from './Pages/SingleCoin';
 import Navbar from './Components/Navbar';
+import 'react-tooltip/dist/react-tooltip.css'
+import Wishlist from './Pages/Wishlist';
 const App = () => {
-  const dispatch=useDispatch();
   useEffect(()=>{
   },[]);
   return (
@@ -15,6 +16,7 @@ const App = () => {
     <Routes>
      <Route path='/' element={ <Home/>}></Route>
         <Route path="/singlecoin/:coinId" element={<SingleCoin/>}></Route>
+        <Route path="/wishlist" element={<Wishlist/>}></Route>
      </Routes>     
     </div>
   )

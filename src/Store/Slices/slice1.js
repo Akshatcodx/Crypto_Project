@@ -1,22 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-const options = {
-  method: "GET",
-  url: "https://coinranking1.p.rapidapi.com/coins",
-  params: {
-    referenceCurrencyUuid: "yhjMzLPhuIDl",
-    timePeriod: "24h",
-    "tiers[0]": "1",
-    orderBy: "marketCap",
-    orderDirection: "desc",
-    limit: "50",
-    offset: "0",
-  },
-  headers: {
-    "X-RapidAPI-Key": "e1dc48e7femsh873409c303b78f8p1e570fjsn98d96c9b786f",
-    "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
-  },
-};
 export const STATUS = Object.freeze({
   LOADING: "loading",
   ERROR: "error",
@@ -26,6 +9,7 @@ const initialState = {
   trendingCoins: [],
   coins: [],
   status: STATUS.LOADING,
+  wishlist: [],
 };
 const Slice1 = createSlice({
   name: "Slice1",
@@ -36,6 +20,20 @@ const Slice1 = createSlice({
     },
     setStatus: (state, action) => {
       state.status = STATUS.IDLE;
+    },
+    addToWishlist: (state, action) => {
+      const elem = state.wishlist.find((elem) => {
+        return elem.id === action.payload.id;
+      });
+      if (elem == undefined) {
+        state.wishlist.push(action.payload);
+      }
+    },
+    removeFromWishlist: (state, action) => {
+      const temp = state.wishlist.filter((elem) => {
+        return elem.id !== action.payload.id;
+      });
+      state.wishlist = temp;
     },
   },
   extraReducers: (builder) => {
@@ -90,4 +88,5 @@ export const fetchTrendingCoins = createAsyncThunk(
 );
 // fetching trending coins
 export default Slice1.reducer;
-export const { setCoin, setStatus } = Slice1.actions;
+export const { setCoin, setStatus, addToWishlist, removeFromWishlist } =
+  Slice1.actions;

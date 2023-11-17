@@ -8,17 +8,16 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Search from './Search';
 import { setCoin } from '../Store/Slices/slice1';
-import { FaStar } from 'react-icons/fa';
-import { BsStar } from 'react-icons/bs';
+
+
+import SingleRow from './SingleRow';
 
 const CoinsSection = () => {  
   let rows;
-  const [iconClicked,setIconClicked]=useState("")
-  const dispatch=useDispatch();
+
   const [page,setPage]=useState(1);
   const [search,setSearch]=useState("");
   const {coins}=useSelector((state)=>(state.slice1));
-  // const [filteredCoins,setFilteredCoins]=useState([...coins]);
   console.log("these are coins",coins);
   let itemsPerPage=(coins.length)/10;
   const handleClick=(pageClicked)=>{
@@ -27,6 +26,9 @@ const CoinsSection = () => {
     setPage(pageClicked)
    window.scroll(0,450)
   }
+
+  // lsdnff
+  // ernflaf
 
   // if(search!=="")
   // {
@@ -50,17 +52,6 @@ const CoinsSection = () => {
   // }
 // rows=filteredCoins.slice(page*itemsPerPage-itemsPerPage,page*itemsPerPage);
 
-const handleIconClick=(id)=>{
- if(iconClicked==="")
- { 
- setIconClicked(id);
- }
- else{
-  setIconClicked("");
- }
- 
-
-}
 
 const filteredCoins=coins.filter((elem)=>{
   return elem.name.toLowerCase().includes(search.toLowerCase());
@@ -87,14 +78,16 @@ if(search=="")
         <h1>CryptoCurrencies By Market Price</h1>
         {/* search box */}
         <div className="search">
-          <input type='text' value={search} placeholder='Search Coin' onChange={(e)=>{setSearch(e.target.value)}}></input>
+          <input type='text' value={search} 
+          placeholder='Search Coin'
+           onChange={(e)=>{setSearch(e.target.value)}}></input>
         </div>
         {/* search box */}
         <div className="coinstable">
+          <div className="tableContainer">
             <table border="2">
              <thead>
-              <th>
-             
+              <th>          
                 #
                 </th>
                 <th>Coin</th>
@@ -109,29 +102,8 @@ if(search=="")
                let num=Number(elem.price_change_percentage_24h.toFixed(2)
                 )
                 return(
-                  <tr>
-                     <td>
-                      <div style={{display:"flex",gap:"4px",alignItems:"center",justifyContent:"center"}}>
-                      <p className='wishlistIcon' onClick={()=>{handleIconClick(elem.id)}}>
-                       {
-                        // (iconClicked)?(<FaStar/> ):(<BsStar/>)
-                        <FaStar/>
-                       }
-                         </p>
-                     <p> {elem.market_cap_rank}</p>
-                      </div>
-                    </td>
-                  <td>
-                     <div className='coin'>
-                      <div className="img"><Link to={`/singleCoin/${elem.id}`}>
-                        <img src={elem.image}></img></Link></div>
-                      <div className="name"><p>{elem.symbol}</p> <p>{elem.name}</p></div>
-                     </div>
-                    </td>
-                     <td>{elem.current_price.toFixed(2)}  Rs</td>
-                     <td className={(num<0.0)?"red":"green"}>{elem.price_change_percentage_24h}</td>
-                     <td>{elem.market_cap.toString().slice(0,6)}  Rs</td>                 
-                   </tr>
+                  <SingleRow key={elem.id} elem={elem} num={num}/>
+
                 )
               }
                 )
@@ -139,6 +111,7 @@ if(search=="")
              
               </tbody>
              </table>
+             </div>
              {
               (filteredCoins.length>10)?(
              

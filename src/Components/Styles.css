@@ -1,149 +1,237 @@
-.lightTheme{
-    --background:rgb(240,240,240);
-    --color:black;
-    background:url()"https://img.freepik.com/free-vector/realistic-galaxy-background_52683-12122.jpg?size=626&ext=jpg&ga=GA1.1.1739213578.1688215321&semt=ais";
-    --tableBackground:rgb(240,240,240);
-    --verticalLine:rgb(0,0,0);
-    --border:black;
+.lightTheme {
+    --background: rgb(240, 240, 240);
+    --color: black;
+    --tableBackground: rgb(240, 240, 240);
+    --verticalLine: rgb(0, 0, 0);
+    --border: black;
 }
-.darkTheme{
-    --background:#0F0F0F;
-    --color:white;
-    --tableBackground:blueviolet;
-    --verticalLine:blueviolet;
-    --border:blueviolet;
+
+.darkTheme {
+    --background: #0F0F0F;
+    --color: white;
+    --tableBackground: blueviolet;
+    --verticalLine: blueviolet;
+    --border: blueviolet;
 }
-*{
-    margin:0;
-    padding:0;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-:root{
+
+:root {
     font-size: 62.5%;
 }
-body{
-    font-size: 1.6rem;
-}
-/* Navbar */
-.navbar{
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    margin-bottom: 2px;
-    height:8rem;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    padding:0px 6rem;
-    background-color: var(--background);
-    color:var(--color);
-    /* box-shadow: 20px 20px rgb(14, 203, 129) */
-}
-/* Navbar */
 
-/* header */
-.header{
-    height:65vh;
-    /* background-image: url("https://img.freepik.com/free-photo/low-angle-shot-mesmerizing-starry-sky_181624-27925.jpg?size=626&ext=jpg&ga=GA1.1.1739213578.1688215321&semt=ais"); */
-   background-image: url("https://img.freepik.com/free-vector/realistic-galaxy-background_52683-12122.jpg?size=626&ext=jpg&ga=GA1.1.1739213578.1688215321&semt=ais");
-    background-size: cover;
-    /* background-position: center; */
+body {
+    font-size: 1.6rem;
+    border: 2px solid red;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    margin-bottom: 0.2rem;
+    height: 8rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
- box-shadow: rgba(0, 0, 0, 0.65) 0px 5px 15px;;
+    justify-content: space-between;
+    padding: 0rem 6rem;
+    background-color: var(--background);
+    /* width: 100vw; */
+   width: 100%;
+    border: 2px solid red;
+    color: var(--color);
+    font-size: 1.4rem;
+    /* box-shadow: 20px 20px rgb(14, 203, 129) */
+}
+
+.navbar a {
+    color: var(--color);
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.wishlist h1 {
+    color: var(--color);
+    text-decoration: none;
+    font-size: 1.4rem;
 
 }
-.slider{
-    width:80%;
-    
-}
-.slider h1{
 
-    text-align: center;
-    margin: 20px 0px;
-    color:rgb(240,240,240);
+.wishlist a {
+    text-decoration: none;
 }
-.card{
-    text-align: center;
-    color:rgb(240,240,240);
-}
-.image{
-    margin:0 auto;
-    margin-bottom:4px;
+
+/* Navbar */
+
+/* header */
+.header {
+    width: 100vw;
+    max-width: 100%;
+    height: 65vh;
+    background-image: url("https://img.freepik.com/free-vector/realistic-galaxy-background_52683-12122.jpg?size=626&ext=jpg&ga=GA1.1.1739213578.1688215321&semt=ais");
+    background-size: 156rem;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.65) 0px 5px 15px;
+    ;
+    border: 2px solid blue;
 
 }
-.image p{
-    margin-bottom: 10px;
-}
-.image img{
+
+.slider {
+    width: 80%;
     margin: 0 auto;
-   margin-bottom:18px;
-   height:66px;
+
+}
+
+.slider h1 {
+    text-align: center;
+    margin: 2rem 0rem;
+    color: rgb(240, 240, 240);
+}
+
+.card {
+    text-align: center;
+    color: rgb(240, 240, 240);
+}
+
+.image {
+    margin: 0 auto;
+    margin-bottom: 0.4rem;
+
+}
+
+.image p {
+    margin-bottom: 1rem;
+}
+
+.image img {
+    margin: 0 auto;
+    margin-bottom: 1.8rem;
+    height: 6.6rem;
 }
 
 
 /* header */
+l
 
 /* coins section */
-.coinsSection{
+.coinsSection {
+    /* width: 100vw; */
+    /* max-width: 100%; */
     text-align: center;
     color: var(--color);
     font-style: italic;
-    width: 100vw;
+    border: 10px solid yellow;
+    /* width: 100%; */
+    /* new code */
+    margin-inline: auto;
+    width: min(900px, 100%-3rem);
+    /* new code */
 }
-.coinsSection h1{
-    color: var(--color);
-    margin:10px 0px
+
+.coinsSection h1 {
+    color: black;
+    margin: 1rem 0rem;
+    text-align: center;
+
+
 }
-.coinsSection table{
+
+/* new code */
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tableContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* new code */
+.coinsSection table {
     color: var(--color);
     background: var(--background);
-    width:90vw;
-    margin:0 auto
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid red;
+    /* 
+    new code
+     */
+
 }
+
 /* for (change) color */
-.red{
-    color:red;
+.red {
+    color: red;
 }
-.green{
-    color:rgb(14, 203, 129);
+
+.green {
+    color: rgb(14, 203, 129);
 }
+
 /* coins table */
- .coinstable table th{
-   background-color: blueviolet; 
-   padding:10px;
- }
- table{
+.coinstable table th {
+    background-color: blueviolet;
+    padding: 1rem;
+}
+
+table {
     color: var(--color);
     background-color: var(--background);
- }
- .img img{
-    height:50px;
-    margin:5px 5px;
- }
- .coin{
+
+    /* table-layout: fixed;  */
+    /* add table layout fixed */
+    /* overflow: scroll;  */
+}
+
+.img img {
+    height: 5rem;
+    margin: 0.5rem 0.5rem;
+}
+
+.coin {
     display: flex;
     align-items: center;
-    gap:8px;
- }
+    gap: 0.8rem;
+}
+
 /* coins table */
 
 /* Pagination */
-.paginationCounterButton{
-    cursor:pointer;
+.paginationCounterButton {
+    cursor: pointer;
     border-radius: 50%;
     background-color: var(--background);
-    padding:2px 6px;
-    margin:0px 5px;
+    padding: 0.2rem 0.6rem;
+    margin: 0rem 0.5rem;
 }
-.paginationCounter{
-    margin:10px 0px;
+
+.paginationCounter {
+    margin: 1rem 0rem;
+    width: 80%;
 }
-.next,.prev{
-    font-size: 20px;
-    cursor:pointer;
+
+.next,
+.prev {
+    font-size: 2rem;
+    cursor: pointer;
 }
-#paginationClicked{
+
+#paginationClicked {
     background-color: blueviolet;
 }
+
+.paginationCounter {
+    width: 80%;
+    text-align: center;
+}
+
 /* Pagination */
 
 /* coins section */
@@ -151,78 +239,178 @@ body{
 /* single coin page */
 /* coin info section  */
 .coinInfo {
-    height:85vh;
+    width: 20vw;
+    max-width: 100%;
+    height: 85vh;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap:20px;
+    gap: 2rem;
     background-color: var(--background);
     color: var(--color);
+
 }
-.coinInfo .logo img{
-    /* width:150px; */
+
+/* .coinInfo .logo img{ */
+/* width:150px; */
+/* } */
+.coinInfo {
+    /* display: flex; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+    /* justify-content: space-evenly; */
+    /* padding: 4rem; */
+    font-size: 1.4rem;
+    gap:4rem;
+    /* padding:1rem 0rem */
 }
-.coinInfo .info{
+
+.singleCoinPage {
+    display: flex;
+    align-items: center;
+    border: 2px solid blue;
+}
+
+.coinInfo .info {
     display: flex;
     flex-direction: column;
-    gap:20px;
+    /* gap: 2rem; */
 }
-.verticalLine{
-    background-color: var( --verticalLine);
-    height:85vh;
-    width:3px;
+
+.verticalLine {
+    background-color: var(--verticalLine);
+    height: 85vh;
+    width: 0.3rem;
 }
+
 /* coin info section */
 /* chart section */
-.chartSection{
+.chartSection {
     background-color: var(--background);
-    color:var(--color)
+    color: var(--color);
+    width: 80vw;
+    height: 85vh
+}
+
+.chartSection .chart {
+    margin: 0 auto;
+    height: 85vh;
+    /* width: 80%; */
+    width: 80vw
+}
+
+.logo img {
+    width: 15rem;
 
 }
-.chartSection .chart{
 
-    /* margin:0 auto; */
-    width:80vw;
-    /* height:300px; */
-    height:80vh;
-
-}
 /* chart section */
 /* single coin page */
 
 /* search box */
-.search{
-  /* border:2px solid red; */
-    width:90%;
-    margin:0 auto;
-    height:3rem;
+.search {
+    /* border:2px solid red; */
+    width: 80%;
+    margin: 0 auto;
+    height: 3rem;
     margin-bottom: 2rem;
     border: 3px solid var(--border);
-    
 }
-.search input{
-    width:100%;
-    height:100%;
+
+.search input {
+    width: 100%;
+    height: 100%;
     border: none;
     outline: none;
     background: var(--background);
-    color:var(--color);
+    color: var(--color);
 
 }
+
 /* spinner */
-.spinner{
-    height:100vh;
+.spinner {
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 /* spinner */
 
 /* Wishlisht icon */
-.wishlistIcon{
+.wishlistIcon {
     /* margin-right:3px; */
     cursor: pointer;
 }
+
+.tooltip {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 0.4rem;
+    border-radius: 6px;
+    font-size: 1.4rem;
+}
+
+.wishlistPage {
+    text-align: center;
+    color: var(--color);
+    font-style: italic;
+    width: 100vw;
+    max-width: 100%;
+    margin-top: 4rem;
+
+}
+
+/* .wishlistPage table { */
+    /* color: var(--color); */
+    /* background: var(--background); */
+    /* width: 80vw; */
+    /* margin: 0 auto */
+/* } */
+
+.wishlistPage {
+    background-color: var(--background);
+}
+
+.wishlistPage h1 {
+    color: var(--color);
+    margin: 1rem 0rem;
+}
+
 /* wishlisht icon */
+@media (max-width:856px) {
+    .singleCoinPage {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
 
+    .verticalLine {
+        /* display: none; */
+        width: 100vw;
+        background-color: var(--verticalLine);
+        height: 2px
+    }
 
+    .coinInfo {
+        box-sizing: border-box;
+        width: 100vw;
+        max-width: 100%;
+        padding: 2rem;
+        height: 55vh;
+    }
+  .coinInfo.info{
+    display: flex;
+flex-direction: column;
+gap: 2rem;
+  }
+    .chartSection {
+        width: 100vw;
+        max-width: 100%;
+        height: 42vh;
+        margin:auto auto;
+    }
+    .navbar{
+        padding:0rem
+    }
+}

@@ -1,97 +1,97 @@
-import axios from 'axios';
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend,CategoryScale,Filler, LinearScale, PointElement, LineElement, Title} from "chart.js";
-import { Line } from 'react-chartjs-2';
-import moment from 'moment/moment';
-import { setStatus } from '../Store/Slices/slice1';
-import { SpinnerCircular } from 'spinners-react';
-const Chart = ({coinId}) => {
-    const [coinChart,setCoinChart]=useState([]);
-    console.log(coinId);
-    useEffect(()=>{
-        console.log("useeffect running")
-        fetchCoinChart();
-      },[]);
+// import axios from 'axios';
+// import React from 'react'
+// import { useState } from 'react';
+// import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useParams } from 'react-router-dom';
+// import { Chart as ChartJS, ArcElement, Tooltip, Legend,CategoryScale,Filler, LinearScale, PointElement, LineElement, Title} from "chart.js";
+// import { Line } from 'react-chartjs-2';
+// import moment from 'moment/moment';
+// import { setStatus } from '../Store/Slices/slice1';
+// import { SpinnerCircular } from 'spinners-react';
+// const Chart = ({coinId}) => {
+//     const [coinChart,setCoinChart]=useState([]);
+//     console.log(coinId);
+//     useEffect(()=>{
+//         console.log("useeffect running")
+//         fetchCoinChart();
+//       },[]);
 
-    const fetchCoinChart=async()=>{
-      try {
-        console.log("try running")
-        const response=await axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7&interval=daily&precision=1`);
-        const temp=await response.data.prices; 
+//     const fetchCoinChart=async()=>{
+//       try {
+//         console.log("try running")
+//         const response=await axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7&interval=daily&precision=1`);
+//         const temp=await response.data.prices; 
         
 
-        console.log(temp);
-         setCoinChart(temp);
-       }
+//         console.log(temp);
+//          setCoinChart(temp);
+//        }
       
-      catch (error) {
-        console.log(error);
+//       catch (error) {
+//         console.log(error);
         
-      }
-    }
-    console.log("this is coin chart",coinChart);
-    // chart js
-    ChartJS.register(ArcElement,
-      CategoryScale,
-      LinearScale,
-      PointElement,
-      LineElement,
-      Tooltip,
-      Legend,
-      Filler,
-      Title);
+//       }
+//     }
+//     console.log("this is coin chart",coinChart);
+//     // chart js
+//     ChartJS.register(ArcElement,
+//       CategoryScale,
+//       LinearScale,
+//       PointElement,
+//       LineElement,
+//       Tooltip,
+//       Legend,
+//       Filler,
+//       Title);
 
-      const options = {
-       responsive: true,
-       plugins: {
-         legend: {
-           position: 'top'
-         },
-         title: {
-           display: false,
-           text: `${coinId} Crypto Chart`,
-         },
-       },
-     };
-    // chartjs
+//       const options = {
+//        responsive: true,
+//        plugins: {
+//          legend: {
+//            position: 'top'
+//          },
+//          title: {
+//            display: false,
+//            text: `${coinId} Crypto Chart`,
+//          },
+//        },
+//      };
+//     // chartjs
     
-      let coinChartData=coinChart.map((val)=>({x:val[0],y:val[1].toFixed(2)}));
-      console.log("this is final",coinChartData)
+//       let coinChartData=coinChart.map((val)=>({x:val[0],y:val[1].toFixed(2)}));
+//       console.log("this is final",coinChartData)
 
-     const labels=coinChartData.map((value)=>moment(value.x).format("MMM DD"));
-     const data={
-      labels:coinChartData.map((value)=>{return (moment(value.x).format("MMM DD"))}),
-      datasets:[
-        {
-          fill:true,
-          label:coinId,
-          data:coinChartData.map((value)=>{
-            console.log(value.y)
-            return(value.y)
-          }),
+//      const labels=coinChartData.map((value)=>moment(value.x).format("MMM DD"));
+//      const data={
+//       labels:coinChartData.map((value)=>{return (moment(value.x).format("MMM DD"))}),
+//       datasets:[
+//         {
+//           fill:true,
+//           label:coinId,
+//           data:coinChartData.map((value)=>{
+//             console.log(value.y)
+//             return(value.y)
+//           }),
           
-          borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        }
+//           borderColor: 'rgb(53, 162, 235)',
+//       backgroundColor: 'rgba(53, 162, 235, 0.5)',
+//         }
 
-      ]
-     }
-  return (
-    <div>
-      {
-        // (!coinChart)?(
-          // <div className='spinner'><SpinnerCircular size={300}/></div>
-        //  
+//       ]
+//      }
+//   return (
+//     <div>
+//       {
+//         // (!coinChart)?(
+//           // <div className='spinner'><SpinnerCircular size={300}/></div>
+//         //  
 
-        // ):( <Line options={options} data={data}></Line>)
-      }
-      <div className='spinner'><SpinnerCircular size={300}/></div>
-    </div>
-  )
-}
+//         // ):( <Line options={options} data={data}></Line>)
+//       }
+//       <div className='spinner'><SpinnerCircular size={300}/></div>
+//     </div>
+//   )
+// }
 
-export default Chart;
+// export default Chart;
