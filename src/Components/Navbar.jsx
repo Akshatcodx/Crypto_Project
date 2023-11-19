@@ -28,10 +28,11 @@ const Navbar = () => {
             <div className="toggle" style={{display:"flex",gap:"20px",alignItems:"center"}}>        
             <div className="wishlist">
               <Link  to="/wishlist">
-                <h1><i>Wishlist</i></h1>
-               {/* { */}
-                {/* //  (wishlist.length>0)?(<p>{wishlist.length}</p>):("") */}
-              {/* //  } */}
+                <h1 ><i>Wishlist</i></h1>
+               {
+                   (wishlist.length>0)?(<span className='count'>{wishlist.length}</span>):("") 
+                   }
+           
                 </Link>
              </div>
               {
