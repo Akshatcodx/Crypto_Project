@@ -1,9 +1,11 @@
 // import React from 'react'
+// import { useContext } from 'react';
 // import { createContext } from 'react';
 // const Theme=createContext();
-// const value=useContext();
+
 
 // const Exampl = () => {
+//     const value=useContext();
 //   return (
 //   <div>
 //     <Theme.Provider value={dark}>

@@ -1,14 +1,15 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { removeFromWishlist } from '../Store/Slices/slice1';
 
 const Wishlist = () => {
     const {wishlist}=useSelector((state)=>state.slice1);
-    // const dispatch=useDispatch();
-    // const removeItem=(id)=>{
-      // dispatch()
+    const dispatch=useDispatch();
+    const removeItem=(id)=>{
+      dispatch(removeFromWishlist(id))
 
-    // }
+    }
   return (
     <div className='wishlistPage'>
         {
@@ -31,6 +32,7 @@ const Wishlist = () => {
         <th>Price</th>
         <th>24 Change</th>
         <th>Market Cap</th>
+        <th>Remove From Wishlist</th>
      </thead>
      <tbody>
      {
@@ -55,7 +57,7 @@ const Wishlist = () => {
           className={((Number(elem.price_change_percentage_24h))<0.0)?"red":"green"}>
               {elem.price_change_percentage_24h}</td>
           <td>{elem.market_cap}  Rs</td> 
-          {/* <td><button onClick={()=>{removeItem(elem.id)}}>Remove</button></td>                 */}
+          <td><button className='removeButton' onClick={()=>{removeItem(elem.id)}}>Remove</button></td>                
           </tr>
         )
       }

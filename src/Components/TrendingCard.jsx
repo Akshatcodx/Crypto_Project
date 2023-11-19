@@ -12,11 +12,8 @@ const TrendingCard = ({id,name,price,image,symbol}) => {
         <p>{symbol}</p>
         <i><p>{name}</p></i>
        <i><p>💲{price}</p></i>
-
-
        </div>
     </div>
   )
 }
-
 export default TrendingCard;

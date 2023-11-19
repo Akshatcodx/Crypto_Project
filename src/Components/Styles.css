@@ -360,6 +360,10 @@ table {
     margin-top: 4rem;
 
 }
+.wishlistPage table{
+    width:80vw;
+    margin: 0 auto;
+}
 
 /* .wishlistPage table { */
     /* color: var(--color); */
@@ -375,6 +379,14 @@ table {
 .wishlistPage h1 {
     color: var(--color);
     margin: 1rem 0rem;
+}
+.removeButton{
+    border: none;
+    background-color:blueViolet;
+    border-radius: 12px;
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    background:blueViolet;
 }
 
 /* wishlisht icon */

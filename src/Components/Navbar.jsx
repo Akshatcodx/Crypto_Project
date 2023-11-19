@@ -4,7 +4,10 @@ import "react-toggle/style.css"
 import Toggle from 'react-toggle'
 import { Tooltip  } from 'react-tooltip'
 import { Link } from 'react-router-dom';
+import Wishlist from '../Pages/Wishlist';
+import { useSelector } from 'react-redux';
 const Navbar = () => {
+  const {wishlist}=useSelector((state)=>state.slice1)
     const [mode,setMode]=useState("lightTheme");
 
     useEffect(()=>{
@@ -24,7 +27,12 @@ const Navbar = () => {
             </div>
             <div className="toggle" style={{display:"flex",gap:"20px",alignItems:"center"}}>        
             <div className="wishlist">
-              <Link  to="/wishlist"><h1><i>Wishlist</i></h1></Link>
+              <Link  to="/wishlist">
+                <h1><i>Wishlist</i></h1>
+               {/* { */}
+                {/* //  (wishlist.length>0)?(<p>{wishlist.length}</p>):("") */}
+              {/* //  } */}
+                </Link>
              </div>
               {
                  (mode==="lightTheme")?(<h4><i>Light Mode</i></h4>):(<h4><i>Dark Mode</i></h4>)
