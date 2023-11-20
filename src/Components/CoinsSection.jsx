@@ -14,7 +14,6 @@ import SingleRow from './SingleRow';
 
 const CoinsSection = () => {  
   let rows;
-
   const [page,setPage]=useState(1);
   const [search,setSearch]=useState("");
   const {coins}=useSelector((state)=>(state.slice1));
@@ -54,7 +53,7 @@ const CoinsSection = () => {
 
 
 const filteredCoins=coins.filter((elem)=>{
-  return elem.name.toLowerCase().includes(search.toLowerCase());
+  return (elem.name.toLowerCase().includes(search.toLowerCase())||elem.symbol.toLowerCase().includes(search.toLowerCase()));
 });
 console.log("tese are filtered products",filteredCoins)
 
@@ -71,8 +70,6 @@ if(search=="")
 {
   window.scroll(0,450)
 }
-
-
   return (
     <div className='coinsSection'>
         <h1>CryptoCurrencies By Market Price</h1>

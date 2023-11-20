@@ -12,8 +12,8 @@ const SingleCoin = () => {
   const {coinId}=useParams();
   // getting single coin info
   return (
+    
     <div className="singleCoinPage">
-      {/* <Navbar/> */}
       <CoinInfo coinId={coinId}/>
       <div className="verticalLine"></div>
       <Chart coinId={coinId}/>

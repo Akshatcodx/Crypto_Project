@@ -7,6 +7,7 @@ import SingleCoin from './Pages/SingleCoin';
 import Navbar from './Components/Navbar';
 import 'react-tooltip/dist/react-tooltip.css';
 import Wishlist from './Pages/Wishlist';
+import Error from './Pages/Error';
 const App = () => {
   useEffect(()=>{
   },[]);
@@ -17,6 +18,7 @@ const App = () => {
      <Route path='/' element={ <Home/>}></Route>
         <Route path="/singlecoin/:coinId" element={<SingleCoin/>}></Route>
         <Route path="/wishlist" element={<Wishlist/>}></Route>
+        <Route path="*" element={<Error/>}></Route>      
      </Routes>     
     </div>
   )

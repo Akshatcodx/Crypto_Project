@@ -16,7 +16,7 @@ const Home = () => {
    
   return (
     <div>
-      {/* <Exampl/> */}
+      
       {
         (status===STATUS.LOADING)?(<div className='spinner'><SpinnerCircular size={300}/></div>):(
           <div>

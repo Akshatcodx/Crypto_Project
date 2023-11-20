@@ -26,7 +26,6 @@
 
 body {
     font-size: 1.6rem;
-    border: 2px solid red;
 }
 
 /* Navbar */
@@ -41,7 +40,7 @@ body {
     background-color: var(--background);
     /* width: 100vw; */
    width: 100%;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     color: var(--color);
     font-size: 1.4rem;
     /* box-shadow: 20px 20px rgb(14, 203, 129) */
@@ -213,7 +212,6 @@ table {
 }
 
 .paginationCounter {
-    /* margin: 1rem 0rem; */
     width: 80%;
     margin: 0 auto;
 }
@@ -256,14 +254,8 @@ table {
 /* width:150px; */
 /* } */
 .coinInfo {
-    /* display: flex; */
-    /* align-items: center; */
-    /* flex-direction: column; */
-    /* justify-content: space-evenly; */
-    /* padding: 4rem; */
     font-size: 1.4rem;
     gap:4rem;
-    /* padding:1rem 0rem */
 }
 
 .singleCoinPage {
@@ -275,7 +267,6 @@ table {
 .coinInfo .info {
     display: flex;
     flex-direction: column;
-    /* gap: 2rem; */
 }
 
 .verticalLine {
@@ -284,8 +275,6 @@ table {
     width: 0.3rem;
 }
 
-/* coin info section */
-/* chart section */
 .chartSection {
     background-color: var(--background);
     color: var(--color);
@@ -296,13 +285,11 @@ table {
 .chartSection .chart {
     margin: 0 auto;
     height: 85vh;
-    /* width: 80%; */
     width: 80vw
 }
 
 .logo img {
     width: 15rem;
-
 }
 
 /* chart section */

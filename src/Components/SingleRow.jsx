@@ -8,14 +8,11 @@ import { Tooltip  } from 'react-tooltip'
 const SingleRow = ({elem}) => {
   const [iconClicked,setIconClicked]=useState(false);
   const elemId=elem.id;
-  console.log(elemId)
+  console.log(elemId);
   const dispatch=useDispatch();
   const {wishlist}=useSelector((state)=>state.slice1);
   const {coins}=useSelector((state)=>state.slice1);
   console.log("these are coins",coins);
-
-
-// ksbd
 const currentItem=wishlist.find((curElem)=>{
     return curElem.id==elemId;
 });
